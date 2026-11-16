@@ -36,7 +36,7 @@
   <ul>
     <li><strong>Reddit</strong> hosts the App. The App keeps the IDs of threads it has already shown, so it doesn’t show them twice.</li>
     <li><strong>Supabase</strong> hosts our database, where the list of matching threads is stored.</li>
-    <li><strong>OpenAI</strong> processes the title and text of matching posts through its API to score their relevance. Under OpenAI’s API policies, this data is not used to train its models, though OpenAI may keep it for a limited time to monitor for abuse.</li>
+    <li><strong>OpenAI</strong> processes the title, subreddit and the beginning of the text of matching posts through its API to score their relevance. Under OpenAI’s API policies, this data is not used to train its models, though OpenAI may keep it for a limited time to monitor for abuse.</li>
   </ul>
 
   <h2>What we never do</h2>
@@ -50,8 +50,9 @@
   <h2>How long we keep it</h2>
   <ul>
     <li>Thread information in our database is deleted within 30 days of being collected.</li>
+    <li>The list posts in our private subreddit are deleted within 30 days of being posted.</li>
     <li>Thread IDs the App keeps to avoid duplicates are deleted after 30 days.</li>
-    <li>If a post is deleted or removed from Reddit, we delete what we stored about it as soon as we detect it, without waiting for the 30 days.</li>
+    <li>If a post is deleted or removed from Reddit, we delete what we stored about it, and take it out of our list posts, as soon as we detect it, without waiting for the 30 days. The App re-checks listed posts regularly to detect this.</li>
   </ul>
 
   <h2>Your choices</h2>
